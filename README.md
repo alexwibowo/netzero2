@@ -121,3 +121,58 @@ To fix the issue, I installed ```expo-cli``` as dependency:
 ```
 npm install --save-dev expo-cli
 ```
+
+
+## Install React Navigation
+
+```
+❯ yarn add @react-navigation/native                                           
+yarn add v1.22.19                                                                                                                                            
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...   
+[3/4] 🔗  Linking dependencies...      
+warning "react-native > react-native-codegen > jscodeshift@0.13.1" has unmet peer dependency "@babel/preset-env@^7.1.6".
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.    
+success Saved 8 new dependencies.                                                                                                                            
+info Direct dependencies                                                      
+└─ @react-navigation/native@6.0.14
+info All dependencies
+├─ @react-navigation/core@6.4.1
+├─ @react-navigation/native@6.0.14
+├─ @react-navigation/routers@6.1.3
+├─ filter-obj@1.1.0
+├─ query-string@7.1.1
+├─ split-on-first@1.1.0
+├─ strict-uri-encode@2.0.0
+└─ use-latest-callback@0.1.5
+✨  Done in 8.57s.
+```
+
+``` 
+❯ npx expo install react-native-screens react-native-safe-area-context
+
+This command is being executed with the global Expo CLI. Learn more: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421
+To use the local CLI instead (recommended in SDK 46 and higher), run:
+› npx expo install
+
+Installing 2 SDK 47.0.0 compatible native modules using Yarn.
+> yarn add react-native-screens@~3.18.0 react-native-safe-area-context@4.4.1
+yarn add v1.22.19
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+success Saved 4 new dependencies.
+info Direct dependencies
+├─ react-native-safe-area-context@4.4.1
+└─ react-native-screens@3.18.2
+info All dependencies
+├─ react-freeze@1.0.3
+├─ react-native-safe-area-context@4.4.1
+├─ react-native-screens@3.18.2
+└─ warn-once@0.1.1
+✨  Done in 6.70s.
+
+```
