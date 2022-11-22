@@ -26,28 +26,7 @@ npx expo install react-native-web@~0.18.9 react-dom@18.1.0 @expo/webpack-config@
 
 ## Running Project
 
-If you are inside corporate network (e.g. with artifactory proxy), you might need to remove yarn.lock and re-install the project. The re-installation step will download the expo cli.
-Without doing this, you might get the following error:
-``` 
-❯ yarn run web
-yarn run v1.22.19
-$ expo start --web
-Starting project at /Users/wibowoa/dev/hackathon/netZero2
-Unable to reach Expo servers. Falling back to using the cached dependency map (bundledNativeModules.json) from the package "expo" installed in your project.
-FetchError: request to https://api.expo.dev/v2/versions/latest failed, reason: self signed certificate in certificate chain
-FetchError: request to https://api.expo.dev/v2/versions/latest failed, reason: self signed certificate in certificate chain
-    at ClientRequest.<anonymous> (/Users/wibowoa/dev/hackathon/netZero2/node_modules/node-fetch/lib/index.js:1491:11)
-    at ClientRequest.emit (events.js:375:28)
-    at TLSSocket.socketErrorListener (_http_client.js:475:9)
-    at TLSSocket.emit (events.js:375:28)
-    at emitErrorNT (internal/streams/destroy.js:106:8)
-    at emitErrorCloseNT (internal/streams/destroy.js:74:3)
-    at processTicksAndRejections (internal/process/task_queues.js:82:21)
-error Command failed with exit code 1.
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-```
-
-So here is the step (while connected to corporate network with npm registry):
+If you are inside corporate network (e.g. with artifactory proxy), you might need to remove yarn.lock and re-install the project.
 ``` 
 ❯ rm yarn.lock
 ❯ yarn install
@@ -114,4 +93,31 @@ Starting Webpack on port 19006 in development mode.
 Logs for your project will appear below. Press Ctrl+C to exit.
 
 ```
-If you are still getting the same error, disconnect from the corp network, run the ```yarn run web``` again, terminate, reconnect to corp network, and run ```yarn run web``` again.
+
+# FAQ
+
+I initially got this error while trying to run ```yarn run web``` :
+
+```
+❯ yarn run web
+yarn run v1.22.19
+$ expo start --web
+Starting project at /Users/wibowoa/dev/hackathon/netZero2
+Unable to reach Expo servers. Falling back to using the cached dependency map (bundledNativeModules.json) from the package "expo" installed in your project.
+FetchError: request to https://api.expo.dev/v2/versions/latest failed, reason: self signed certificate in certificate chain
+FetchError: request to https://api.expo.dev/v2/versions/latest failed, reason: self signed certificate in certificate chain
+at ClientRequest.<anonymous> (/Users/wibowoa/dev/hackathon/netZero2/node_modules/node-fetch/lib/index.js:1491:11)
+at ClientRequest.emit (events.js:375:28)
+at TLSSocket.socketErrorListener (_http_client.js:475:9)
+at TLSSocket.emit (events.js:375:28)
+at emitErrorNT (internal/streams/destroy.js:106:8)
+at emitErrorCloseNT (internal/streams/destroy.js:74:3)
+at processTicksAndRejections (internal/process/task_queues.js:82:21)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+```
+
+To fix the issue, I installed ```expo-cli``` as dependency:
+```
+npm install --save-dev expo-cli
+```
